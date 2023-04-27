@@ -1,0 +1,62 @@
+
+@media screen and (max-width: 800px) {
+    .header {
+        background-color:  tan;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .nav{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito', sans-serif;
+        gap: 2.5vw;
+        padding-right: 3rem;
+        color: #fff;
+    }
+    
+    .nav_list{
+        display: flex;
+        gap: 2vw;
+    }
+
+    .logo-header {
+        width: 5vw;
+        padding-left: 1rem;
+    }
+
+}
+
+@media screen and (min-width: 800px) {
+    .header {
+        background-color:  tan;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .nav{
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito', sans-serif;
+        gap: 25px;
+        padding-right: 3rem;
+        color: #fff;
+    }
+    
+    .nav_list{
+        display: flex;
+        gap: 15px;
+    }
+
+    .logo-header {
+        width: 5vw;
+        padding-left: 1rem;
+    }
+
+
+}

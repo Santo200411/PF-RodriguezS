@@ -1,0 +1,27 @@
+
+@media screen and (max-width: 800px) {
+
+    .header {
+        background-color:  $color-principal;
+        padding: 2vw;
+        display: flex;
+        height: fit-content;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (min-width: 800px) {
+    .header {
+        background-color:  $color-principal;
+        padding: 2vw;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+}

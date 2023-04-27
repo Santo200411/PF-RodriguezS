@@ -1,0 +1,480 @@
+@charset "UTF-8";
+@keyframes animacion-desplazamiento {
+  /* Define el inicio de la animación */
+  from {
+    transform: translateX(-200px);
+  }
+  /* Define el final de la animación */
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes fade-in {
+  /* Define el inicio de la animación */
+  from {
+    opacity: 0;
+  }
+  /* Define el final de la animación */
+  to {
+    opacity: 1;
+  }
+}
+.animacion-izquierda {
+  animation-name: animacion-desplazamiento;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: both;
+}
+
+.animacion-fade {
+  animation-name: fade_in;
+  animation: fade-in 1s ease-in-out;
+}
+
+a.animacion-fade {
+  /* Define la opacidad del elemento */
+  opacity: 1;
+  /* Define la animación */
+  animation: fade-in 0.5s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+iframe {
+  width: 100%;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 4px;
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale 0.25s;
+}
+
+.link:hover::before {
+  scale: 1;
+}
+
+a:link, a:visited {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  color: grey;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+.texto {
+  list-style-type: circle;
+  padding-left: 5vw;
+  padding-right: 4vw;
+}
+
+.row {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  grid-template-columns: repeat(3, 1fr); /* Agregado para que cada tarjeta ocupe un tercio del ancho disponible */
+}
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  background-color: bisque;
+}
+
+.main_grid_container_4d {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
+  background-color: bisque;
+  justify-content: center;
+  align-items: center;
+}
+
+.div1 {
+  grid-area: 1/1/2/2;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.div2 {
+  grid-area: 1/2/2/3;
+  padding-right: 30px;
+  padding-top: 30px;
+}
+
+.div3 {
+  grid-area: 2/1/3/2;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.div4 {
+  grid-area: 2/2/3/3;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.card_prof {
+  width: 100%;
+  height: fit-content;
+  padding: 2rem;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+}
+.card_prof h1 {
+  padding-left: 20px;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+}
+.card_prof img {
+  margin-right: 15px;
+  justify-content: left;
+  height: 14rem;
+  width: 14rem;
+  border: solid 3px black;
+  border-radius: 20px;
+}
+
+.info_prof {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  height: 400px;
+  position: relative;
+  width: 800px;
+  display: block;
+  margin: 50px auto;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.carousel-item {
+  position: absolute;
+  border-radius: 15px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 50px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 12px;
+}
+
+.arrow-prev {
+  left: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.arrow-next {
+  right: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+[id^=item] {
+  display: none;
+}
+
+.item-1 {
+  z-index: 2;
+  opacity: 1;
+  background: url("../assets/images/carrusel_2.jpg");
+  background-size: cover;
+}
+
+.item-2 {
+  background: url("../assets/images/carrusel_1.jpg");
+  background-size: cover;
+}
+
+.item-3 {
+  background: url("../assets/images/carrusel_3.jpg");
+  background-size: cover;
+}
+
+*:target ~ .item-1 {
+  opacity: 0;
+}
+
+#item-1:target ~ .item-1 {
+  opacity: 1;
+}
+
+#item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+  z-index: 3;
+  opacity: 1;
+}
+
+@media screen and (max-width: 800px) {
+  .card {
+    text-align: center;
+    width: 80vw;
+    padding-bottom: 15px;
+    border: solid 3px black;
+    height: fit-content;
+    background-color: aliceblue;
+    box-shadow: 0 0 2vh rgb(0, 0, 0);
+  }
+  .form {
+    justify-content: start;
+    text-align: start;
+    padding-left: 1vw;
+  }
+  .text_title {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 800px) {
+  .card {
+    width: 24vw; /* Cambio de 80vw a calc(33.33% - 30px) */
+    margin: 15px; /* Agregado para que haya espacio entre las tarjetas */
+    padding-bottom: 15px;
+    justify-content: left;
+    border: solid 3px black;
+    height: 25vw;
+    background-color: aliceblue;
+    box-shadow: 0 0 2vh rgb(0, 0, 0);
+  }
+}
+.form {
+  justify-content: start;
+  text-align: start;
+  padding-left: 1vw;
+}
+
+.text_title {
+  text-align: center;
+}
+
+.parrafo {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  text-indent: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  footer {
+    padding-top: 3vh;
+    width: 100%;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 80vw;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background: tan;
+    line-height: 1.5;
+  }
+  .footer_container {
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: 80vw;
+    max-width: fit-content;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 800px) {
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: tan;
+    line-height: 1.5;
+  }
+  .footer_container {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  .header {
+    background-color: tan;
+    padding: 2vw;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (min-width: 800px) {
+  .header {
+    background-color: tan;
+    padding: 2vw;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 800px) {
+  .header {
+    background-color: tan;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito", sans-serif;
+    gap: 2.5vw;
+    padding-right: 3rem;
+    color: #fff;
+  }
+  .nav_list {
+    display: flex;
+    gap: 2vw;
+  }
+  .logo-header {
+    width: 5vw;
+    padding-left: 1rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .header {
+    background-color: tan;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    font-family: "Nunito", sans-serif;
+    gap: 25px;
+    padding-right: 3rem;
+    color: #fff;
+  }
+  .nav_list {
+    display: flex;
+    gap: 15px;
+  }
+  .logo-header {
+    width: 5vw;
+    padding-left: 1rem;
+  }
+}
+@media screen and (max-width: 800px) {
+  .logo_container {
+    width: 100%;
+    background-color: bisque;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .photo_desc {
+    font-size: 0.75em;
+    font-family: "Nunito", sans-serif;
+  }
+  .box_logo {
+    display: grid;
+    flex-wrap: wrap;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .logo_app {
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .logo_container {
+    width: 100%;
+    background-color: bisque;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .box_logo {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .box_logo img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    height: 80px;
+    border: solid 3px black;
+    display: grid;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: solid 3px black;
+  }
+  .photo_desc {
+    font-size: 0.75em;
+    font-family: "Nunito", sans-serif;
+  }
+  .logo_app {
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
