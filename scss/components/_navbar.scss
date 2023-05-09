@@ -1,13 +1,13 @@
 
 @media screen and (max-width: 800px) {
-    .header {
+  /*  .header {
         background-color:  tan;
         padding: 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-    }
+    }*/
     
     .nav{
         display: flex;
@@ -24,21 +24,21 @@
     }
 
     .logo-header {
-        width: 5vw;
+        width: 15vw;
         padding-left: 1rem;
     }
 
 }
 
 @media screen and (min-width: 800px) {
-    .header {
+    /*.header {
         background-color:  tan;
         padding: 15px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
-    }
+    }*/
     .nav{
         display: flex;
         flex-direction: column;

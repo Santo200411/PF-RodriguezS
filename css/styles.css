@@ -2,11 +2,11 @@
 @keyframes animacion-desplazamiento {
   /* Define el inicio de la animación */
   from {
-    transform: translateX(-200px);
+    transform: translatey(-100px);
   }
   /* Define el final de la animación */
   to {
-    transform: translateX(0px);
+    transform: translatex(0px);
   }
 }
 @keyframes fade-in {
@@ -19,9 +19,9 @@
     opacity: 1;
   }
 }
-.animacion-izquierda {
+.animacion-top {
   animation-name: animacion-desplazamiento;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
   animation-timing-function: ease-in;
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -42,6 +42,10 @@ a.animacion-fade {
 
 html {
   scroll-behavior: smooth;
+}
+
+main {
+  background-color: bisque;
 }
 
 * {
@@ -99,11 +103,8 @@ ol {
   padding-right: 4vw;
 }
 
-.row {
-  display: grid;
-  width: 100%;
-  justify-content: center;
-  grid-template-columns: repeat(3, 1fr); /* Agregado para que cada tarjeta ocupe un tercio del ancho disponible */
+input {
+  margin-bottom: 10px;
 }
 
 h1 {
@@ -112,167 +113,219 @@ h1 {
   background-color: bisque;
 }
 
-.main_grid_container_4d {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 30px;
-  grid-row-gap: 40px;
-  background-color: bisque;
-  justify-content: center;
-  align-items: center;
+@media screen and (max-width: 800px) {
+  .main_container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  .main_container p {
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
-
-.div1 {
-  grid-area: 1/1/2/2;
-  padding-left: 30px;
-  padding-top: 30px;
+@media screen and (min-width: 800px) {
+  .main_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 40px;
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+  }
+  .main_grid_1 {
+    grid-area: 1/1/2/2;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+  .main_grid_2 {
+    grid-area: 1/2/2/3;
+    padding-right: 30px;
+    padding-top: 30px;
+  }
+  .main_grid_3 {
+    grid-area: 2/1/3/2;
+    padding-left: 30px;
+    padding-bottom: 30px;
+  }
+  .main_grid_4 {
+    grid-area: 2/2/3/3;
+    padding-right: 30px;
+    padding-bottom: 30px;
+  }
 }
-
-.div2 {
-  grid-area: 1/2/2/3;
-  padding-right: 30px;
-  padding-top: 30px;
+@media screen and (max-width: 800px) {
+  .carousel-wrapper {
+    height: 35vh;
+    position: relative;
+    width: 80vw;
+    display: block;
+    margin: 50px auto;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: bisque;
+  }
+  .carousel-item {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 50px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px;
+  }
+  .arrow-prev {
+    left: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+  }
+  .arrow-next {
+    right: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  [id^=item] {
+    display: none;
+  }
+  .item-1 {
+    z-index: 2;
+    opacity: 1;
+    background: url("../assets/images/carrusel_2.jpg");
+    background-size: cover;
+  }
+  .item-2 {
+    background: url("../assets/images/carrusel_1.jpg");
+    background-size: cover;
+  }
+  .item-3 {
+    background: url("../assets/images/carrusel_3.jpg");
+    background-size: cover;
+  }
+  *:target ~ .item-1 {
+    opacity: 0;
+  }
+  #item-1:target ~ .item-1 {
+    opacity: 1;
+  }
+  #item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
 }
-
-.div3 {
-  grid-area: 2/1/3/2;
-  padding-left: 30px;
-  padding-bottom: 30px;
+@media screen and (min-width: 800px) {
+  .carousel-wrapper {
+    height: 400px;
+    position: relative;
+    width: 800px;
+    display: block;
+    margin: 50px auto;
+    border: 2px solid black;
+    border-radius: 15px;
+  }
+  .carousel-item {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 50px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px;
+  }
+  .arrow-prev {
+    left: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+  }
+  .arrow-next {
+    right: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  [id^=item] {
+    display: none;
+  }
+  .item-1 {
+    z-index: 2;
+    opacity: 1;
+    background: url("../assets/images/carrusel_2.jpg");
+    background-size: cover;
+  }
+  .item-2 {
+    background: url("../assets/images/carrusel_1.jpg");
+    background-size: cover;
+  }
+  .item-3 {
+    background: url("../assets/images/carrusel_3.jpg");
+    background-size: cover;
+  }
+  *:target ~ .item-1 {
+    opacity: 0;
+  }
+  #item-1:target ~ .item-1 {
+    opacity: 1;
+  }
+  #item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
 }
-
-.div4 {
-  grid-area: 2/2/3/3;
-  padding-right: 30px;
-  padding-bottom: 30px;
-}
-
-.card_prof {
-  width: 100%;
-  height: fit-content;
-  padding: 2rem;
-  background-color: bisque;
-  display: flex;
-  flex-direction: column;
-}
-.card_prof h1 {
-  padding-left: 20px;
-  font-family: "Nunito", sans-serif;
-  font-size: 2rem;
-}
-.card_prof img {
-  margin-right: 15px;
-  justify-content: left;
-  height: 14rem;
-  width: 14rem;
-  border: solid 3px black;
-  border-radius: 20px;
-}
-
-.info_prof {
-  display: flex;
-  flex-direction: column;
-}
-
-.carousel-wrapper {
-  height: 400px;
-  position: relative;
-  width: 800px;
-  display: block;
-  margin: 50px auto;
-  border: 2px solid black;
-  border-radius: 15px;
-}
-
-.carousel-item {
-  position: absolute;
-  border-radius: 15px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 25px 50px;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-
-.arrow {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 12px;
-}
-
-.arrow-prev {
-  left: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) rotate(135deg);
-}
-
-.arrow-next {
-  right: 30px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) rotate(-45deg);
-}
-
-[id^=item] {
-  display: none;
-}
-
-.item-1 {
-  z-index: 2;
-  opacity: 1;
-  background: url("../assets/images/carrusel_2.jpg");
-  background-size: cover;
-}
-
-.item-2 {
-  background: url("../assets/images/carrusel_1.jpg");
-  background-size: cover;
-}
-
-.item-3 {
-  background: url("../assets/images/carrusel_3.jpg");
-  background-size: cover;
-}
-
-*:target ~ .item-1 {
-  opacity: 0;
-}
-
-#item-1:target ~ .item-1 {
-  opacity: 1;
-}
-
-#item-2:target ~ .item-2, #item-3:target ~ .item-3 {
-  z-index: 3;
-  opacity: 1;
-}
-
 @media screen and (max-width: 800px) {
   .card {
     text-align: center;
     width: 80vw;
-    padding-bottom: 15px;
     border: solid 3px black;
+    border-radius: 7px;
     height: fit-content;
     background-color: aliceblue;
     box-shadow: 0 0 2vh rgb(0, 0, 0);
+    text-align: justify;
   }
   .form {
     justify-content: start;
-    text-align: start;
+    text-align: justify;
     padding-left: 1vw;
   }
   .text_title {
     text-align: center;
   }
+  .parrafo {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-indent: 20px;
+    text-align: justify;
+  }
 }
 @media screen and (min-width: 800px) {
   .card {
-    width: 24vw; /* Cambio de 80vw a calc(33.33% - 30px) */
+    width: 24vw;
     margin: 15px; /* Agregado para que haya espacio entre las tarjetas */
     padding-bottom: 15px;
     justify-content: left;
@@ -280,11 +333,12 @@ h1 {
     height: 25vw;
     background-color: aliceblue;
     box-shadow: 0 0 2vh rgb(0, 0, 0);
+    text-align: justify;
   }
 }
 .form {
   justify-content: start;
-  text-align: start;
+  text-align: justify;
   padding-left: 1vw;
 }
 
@@ -294,44 +348,74 @@ h1 {
 
 .parrafo {
   padding-left: 10px;
+  padding-right: 10px;
   padding-bottom: 10px;
   text-indent: 20px;
 }
 
 @media screen and (max-width: 800px) {
-  footer {
-    padding-top: 3vh;
-    width: 100%;
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: 80vw;
-    justify-content: center;
+  .footer_container {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: justify;
-    background: tan;
-    line-height: 1.5;
+    justify-content: center;
+    background-color: tan;
+  }
+  .footer_container .card {
+    margin: 20px 0;
+  }
+  .logo_app {
+    width: 50px;
+    padding-left: 10px;
+    border-radius: 50%;
   }
   .footer_container {
-    display: grid;
-    flex-wrap: wrap;
-    grid-template-columns: 80vw;
-    max-width: fit-content;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer_container .card {
+    margin: 20px 0;
   }
 }
 @media screen and (min-width: 800px) {
-  footer {
-    width: 100%;
+  /*  
+    .footer_container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 0px;
+        grid-row-gap: 10px;
+        justify-content: center;
+        align-items: center;
+        background: tan;
+        }
+
+        .footer_card1 { grid-area: 1 / 1 / 2 / 2; }
+        .footer_card2 { grid-area: 1 / 2 / 2 / 3; }
+        .footer_card3 { grid-area: 1 / 3 / 2 / 4; }
+
+    }*/
+  .footer_container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background: tan;
-    line-height: 1.5;
-  }
-  .footer_container {
     margin: 0 auto;
+    background: tan;
+  }
+  .footer_card1 {
+    flex-basis: 350px;
+  }
+  .footer_card2 {
+    flex-basis: 350px;
+  }
+  .footer_card3 {
+    flex-basis: 350px;
+  }
+  .logo_app {
+    width: 50px;
+    padding-left: 10px;
+    border-radius: 50%;
   }
 }
 @media screen and (max-width: 800px) {
@@ -357,14 +441,14 @@ h1 {
   }
 }
 @media screen and (max-width: 800px) {
-  .header {
-    background-color: tan;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  /*  .header {
+        background-color:  tan;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }*/
   .nav {
     display: flex;
     flex-direction: column;
@@ -378,19 +462,19 @@ h1 {
     gap: 2vw;
   }
   .logo-header {
-    width: 5vw;
+    width: 15vw;
     padding-left: 1rem;
   }
 }
 @media screen and (min-width: 800px) {
-  .header {
-    background-color: tan;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
+  /*.header {
+      background-color:  tan;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+  }*/
   .nav {
     display: flex;
     flex-direction: column;
@@ -409,13 +493,66 @@ h1 {
   }
 }
 @media screen and (max-width: 800px) {
-  .logo_container {
+  .card_prof {
     width: 100%;
+    height: fit-content;
+    padding: 2rem;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card_prof h1 {
+    font-family: "Nunito", sans-serif;
+    font-size: 2rem;
+  }
+  .card_prof img {
+    justify-content: center;
+    width: 50vw;
+    border: solid 3px black;
+    border-radius: 15px;
+  }
+  .info_prof {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 800px) {
+  .card_prof {
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+  }
+  .card_prof h1 {
+    padding-left: 20px;
+    font-family: "Nunito", sans-serif;
+    font-size: 2rem;
+  }
+  .card_prof img {
+    margin-right: 15px;
+    justify-content: left;
+    width: 300px;
+    border: solid 3px black;
+    border-radius: 20px;
+  }
+  .info_prof {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 800px) {
+  .main_logo_container {
+    width: 100%;
+    height: fit-content;
     background-color: bisque;
     color: rgb(0, 0, 0);
     font-size: 2rem;
     padding-top: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -424,56 +561,73 @@ h1 {
     font-size: 0.75em;
     font-family: "Nunito", sans-serif;
   }
-  .box_logo {
-    display: grid;
+  .row_logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15px;
+  }
+  .main_box_logo {
+    display: flex;
     flex-wrap: wrap;
-    width: 33%;
+    width: 35vw;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
   }
-  .logo_app {
-    width: 50px;
-    border-radius: 50%;
-  }
-}
-@media screen and (min-width: 800px) {
-  .logo_container {
-    width: 100%;
-    background-color: bisque;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-  }
-  .box_logo {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-  }
-  .box_logo img {
+  .main_box_logo img {
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
-    height: 80px;
+    width: 125px;
     border: solid 3px black;
     display: grid;
     margin: 0 auto;
     border-radius: 50%;
     border: solid 3px black;
   }
-  .photo_desc {
-    font-size: 0.75em;
+  .main_box_logo h2 {
+    font-size: 0.6em;
     font-family: "Nunito", sans-serif;
   }
-  .logo_app {
-    width: 50px;
+}
+@media screen and (min-width: 800px) {
+  .main_logo_container {
+    width: 100%;
+    height: fit-content;
+    background-color: bisque;
+    font-size: 2rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .row_logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+  }
+  .main_box_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  .main_box_logo img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    width: 160px;
+    border: solid 3px black;
+    display: grid;
+    margin: 0 auto;
     border-radius: 50%;
+    border: solid 3px black;
+  }
+  .main_box_logo h2 {
+    font-size: 0.75em;
+    font-family: "Nunito", sans-serif;
   }
 }
 

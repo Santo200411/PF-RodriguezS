@@ -2,37 +2,17 @@
 .card {
     text-align: center;
     width: 80vw;
-    padding-bottom: 15px;
     border: solid 3px black;
+    border-radius: 7px;
     height: fit-content;
     background-color: $color-ter;
     box-shadow: 0 0 2vh rgba(0, 0, 0, 4);
-}
-.form{
-    justify-content: start;
-    text-align: start;
-    padding-left: 1vw;
-}
-.text_title{
-    text-align: center;
-}
-}
+    text-align: justify;
 
-@media screen and (min-width: 800px) {
-    .card {
-        width: 24vw; /* Cambio de 80vw a calc(33.33% - 30px) */
-        margin: 15px; /* Agregado para que haya espacio entre las tarjetas */
-        padding-bottom: 15px;
-        justify-content: left;
-        border: solid 3px black;
-        height: 25vw;
-        background-color: $color-ter;
-        box-shadow: 0 0 2vh rgba(0, 0, 0, 4);
-    }
 }
 .form{
     justify-content: start;
-    text-align: start;
+    text-align: justify;
     padding-left: 1vw;
 }
 .text_title{
@@ -40,6 +20,38 @@
 }
 .parrafo{
     padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    text-indent: 20px;
+    text-align: justify;
+}   
+}
+
+@media screen and (min-width: 800px) {
+    .card {
+        width: 24vw;
+        margin: 15px; /* Agregado para que haya espacio entre las tarjetas */
+        padding-bottom: 15px;
+        justify-content: left;
+        border: solid 3px black;
+        height: 25vw;
+        background-color: $color-ter;
+        box-shadow: 0 0 2vh rgba(0, 0, 0, 4);
+        text-align: justify;
+
+    }
+}
+.form{
+    justify-content: start;
+    text-align: justify;
+    padding-left: 1vw;
+}
+.text_title{
+    text-align: center;
+}
+.parrafo{
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     text-indent: 20px;
 }
